@@ -89,22 +89,23 @@ function App() {
           style={{
             background: `linear-gradient(to right, blue 0%, red ${
               ((activeStep + 1) / (steps.length - 1)) * 100
-            }%, blue ${
+            }%, red ${
               ((activeStep + 1) / (steps.length - 1)) * 100
-            }%, red 100%)`, // this is the magic
-            height: ".8rem",
-            width: `${(98 / (steps.length - 1)) * activeStep}%`, // Full bar is 98% because the user hasn't finished the form until they submit it on the last step
-            transition: "width ease-in-out .2s", // cool animation
+            }%, blue 100%)`, // this is the magic
+            height: "1rem",
+            width: `${(100 / steps.length) * activeStep}%`, // divide 100 by the number of steps and multiply by the current step
+            transition: "width ease-in-out 1s", // cool animation
             borderRadius: ".3rem", // round the edges
-            fontSize: ".8rem", // match the font size to the height of the bar
+            fontSize: "1rem", // match the font size to the height of the bar
             paddingLeft: ".1rem", // just to make it look better
+            textAlign: "left", // align the text to the left
+            color: "white", // make the text white
+            fontWeight: "bold", // make the text bold
           }}
         >
           {isFirstStep
-            ? "0%"
-            : `You are ${
-                (98 / (steps.length - 1)) * activeStep
-              }% of the way there!`}
+            ? ""
+            : `You are ${Math.floor(100 / steps.length) * activeStep}% done!`}
         </div>
         {step}
         <div

@@ -17,8 +17,9 @@ export function UserForm({
 }: UserFormProps) {
   return (
     <FormWrapper title="User Details">
-      <label>First Name</label>
+      <label htmlFor="firstName">First Name</label>
       <input
+        id="firstName"
         type="text"
         value={firstName}
         placeholder="Jazzy"
@@ -26,16 +27,18 @@ export function UserForm({
         required
         onChange={(e) => updateFields({ firstName: e.target.value })}
       />
-      <label>Last Name</label>
+      <label htmlFor="lastName">Last Name</label>
       <input
+        id="lastName"
         type="text"
         value={lastName}
         placeholder="Pants"
         required
         onChange={(e) => updateFields({ lastName: e.target.value })}
       />
-      <label>Age</label>
+      <label htmlFor="age">Age</label>
       <input
+        id="age"
         min={1}
         type="number"
         value={age}
